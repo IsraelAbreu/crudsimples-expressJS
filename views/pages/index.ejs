@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/menu') %>
+    </header>
+    <main>
+        <p>O conteúdo principal vem aqui</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% pessoas.forEach(pessoa => { %>
+                    <tr>
+                    <td><%= pessoa.nome %></I></td>
+                    <td><%= pessoa.idade %></td>
+                    <td><%= pessoa.email %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
+</body>
+</html>

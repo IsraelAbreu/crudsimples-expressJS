@@ -1,0 +1,19 @@
+{
+  "name": "crud-simples",
+  "version": "1.0.0",
+  "description": "crud simples com node e express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Israel Abreu",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.4"
+  }
+}
