@@ -23,4 +23,4 @@ const Pessoa = sequelize.define('Pessoa', {
 
 })
 
-export default User;
+export default Pessoa;
