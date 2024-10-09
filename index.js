@@ -48,6 +48,22 @@ app.post('/salvar-pessoa', async (req, res) => {
     }
 });
 
+app.get('/editar/:id', async (req,res) => {
+    try {
+        const {id} = req.params;
+        const pessoa = await Pessoa.findByPk(id);
+        if (pessoa) {
+            res.render('pages/editar', {pessoa});
+        } else {
+            res.status(404).send('Usuário não encontrado');
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Erro ao realizar a busca da pessoa');
+    }
+    
+})
+
 app.listen(port, () =>{
     console.log("Inicializada em: http://localhost:3000/");
 

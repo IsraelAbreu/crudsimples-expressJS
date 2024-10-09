@@ -23,6 +23,12 @@
                     <td><%= pessoa.nome %></I></td>
                     <td><%= pessoa.idade %></td>
                     <td><%= pessoa.email %></td>
+                    <td><button><a href="/editar/<%=pessoa.id%>">Editar</a></button></td>
+                    <td>
+                        <form action="" method="post">
+                            <button>deletar</button>
+                        </form>
+                    </td>
                 </tr>
                 <% }); %>
             </tbody>
