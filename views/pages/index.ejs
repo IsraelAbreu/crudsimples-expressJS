@@ -25,8 +25,8 @@
                     <td><%= pessoa.email %></td>
                     <td><button><a href="/editar/<%=pessoa.id%>">Editar</a></button></td>
                     <td>
-                        <form action="" method="post">
-                            <button>deletar</button>
+                        <form action="/delete/<%=pessoa.id%>" method="POST">
+                            <button type="submit">deletar</button>
                         </form>
                     </td>
                 </tr>

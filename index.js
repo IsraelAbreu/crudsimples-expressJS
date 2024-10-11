@@ -82,6 +82,22 @@ app.post('/atualizar/:id', async(req, res) => {
         console.error(err);
         res.status(500).send('Erro ao atualizar usuário no banco de dados');
    } 
+});
+
+app.post('/delete/:id', async (req,res) => {
+    const {id} = req.params;
+    try {
+        const pessoa =  await Pessoa.findByPk(id);
+        if (pessoa) {
+            await pessoa.destroy();
+            res.redirect('/');
+        } else {
+            res.status(404).send('Pessoa não encontrada');
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Erro ao deletar está pessoa');
+    }
 })
 
 app.listen(port, () =>{
