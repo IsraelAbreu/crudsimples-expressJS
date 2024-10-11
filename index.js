@@ -64,6 +64,26 @@ app.get('/editar/:id', async (req,res) => {
     
 })
 
+app.post('/atualizar/:id', async(req, res) => {
+    const {id} = req.params;
+    const {nome, idade, email} = req.body;
+   try {
+    const pessoa = await Pessoa.findByPk(id);
+    if (pessoa) {
+        pessoa.nome = nome;
+        pessoa.idade = idade;
+        pessoa.email = email;
+        await pessoa.save();
+        res.redirect('/');
+    } else{
+        res.status(404).send('Pessoa não encontrada');
+    }
+   } catch (err) {
+        console.error(err);
+        res.status(500).send('Erro ao atualizar usuário no banco de dados');
+   } 
+})
+
 app.listen(port, () =>{
     console.log("Inicializada em: http://localhost:3000/");
 
