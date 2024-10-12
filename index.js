@@ -1,12 +1,21 @@
 import express from "express";
 import sequelize from "./DB/db.js";
 import Pessoa from "./DB/Pessoa.js";
+import {dirname} from 'path';
+import path from 'path';
+import { fileURLToPath } from "url";
+
+const _filename =  fileURLToPath(import.meta.url);
+const __dirname =  dirname(_filename);
 
 const app = express();
 const port = 3000;
 
 //Configurando EJS como motor de template
 app.set('view engine', 'ejs');
+
+//middleware para servir os arquivos státicos do bootstrap no projeto.
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
 
 //middleware para processar dados do formulário
 app.use(express.urlencoded({extended: true}));
